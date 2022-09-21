@@ -10,7 +10,7 @@ import {ServicoPrestadoBusca} from "./servico-prestado/servico-prestado-lista/se
 })
 export class ServicoPrestadoService {
 
-  apiURL: string = environment.apiURL + '/api/servicos-prestados';
+  apiURL: string = environment.apiURLBase + '/api/servicos-prestados';
 
   constructor(private http: HttpClient) {
   }
