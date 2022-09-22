@@ -7,13 +7,14 @@ import {ServicoPrestadoFormComponent} from "./servico-prestado/servico-prestado-
 import {
   ServicoPrestadoListaComponent
 } from './servico-prestado/servico-prestado-lista/servico-prestado-lista.component';
+import {AuthGuard} from "./auth.guard";
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
-  {path: '', component: LayoutComponent, children: [
-      {path: 'home', component: HomeComponent},
-      {path: 'servico-prestado-form', component: ServicoPrestadoFormComponent},
-      {path: 'servico-prestado-listagem', component: ServicoPrestadoListaComponent}
+  {
+    path: '', component: LayoutComponent, children: [
+      {path: 'home', component: HomeComponent, canActivate: [AuthGuard]},
+      {path: '', redirectTo: '/home', pathMatch: 'full' }
     ]
   }
 ];
